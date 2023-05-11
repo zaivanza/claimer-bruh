@@ -59,7 +59,7 @@ def check_status_tx(chain, tx_hash):
 def add_gas_limit(web3, contract_txn):
 
     try:
-        pluser = [1.3, 1.7]
+        pluser = [1.05, 1.05]
         gasLimit = web3.eth.estimate_gas(contract_txn)
         contract_txn['gas'] = int(gasLimit * random.uniform(pluser[0], pluser[1]))
         # logger.info(f"gasLimit : {contract_txn['gas']}")
@@ -74,7 +74,7 @@ def add_gas_price(web3, contract_txn):
 
     try:
         gas_price = web3.eth.gas_price
-        contract_txn['gasPrice'] = int(gas_price * random.uniform(1.2, 1.3))
+        contract_txn['gasPrice'] = int(gas_price * random.uniform(1, 1.05))
     except Exception as error: 
         logger.error(error)
 
